@@ -3,6 +3,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddOpenApi();
 
+// Add controllers
+builder.Services.AddControllers();
+
 // CORS 
 builder.Services.AddCors(options =>
 {
@@ -45,6 +48,9 @@ app.MapGet("/weatherforecast", () =>
     return forecast;
 })
 .WithName("GetWeatherForecast");
+
+// Map controllers
+app.MapControllers();
 
 app.Run();
 
